@@ -4,6 +4,10 @@ kind: Deployment
 metadata:
   name: web-deployment
   namespace: k8s-lab
+  labels:
+    app: web
+  annotations:
+    descriptions: "Nginx deployment used for Kubernetes learning"
 
 spec:
   replicas: 3
@@ -16,6 +20,10 @@ spec:
     metadata:
       labels:
         app: web
+        tier: frontend
+        environment: learning
+      annotations:
+        purpose: "Demonstrate Pod metadata"
 
     spec:
       containers:
